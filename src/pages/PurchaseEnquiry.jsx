@@ -1,0 +1,24 @@
+import { useState } from "react";
+import { useSearchParams, Link } from "react-router-dom";
+import bikes, { formatRupees } from "../data/bikes";
+
+export default function PurchaseEnquiry(){
+ const [params]=useSearchParams();
+ const initialBike=params.get("bike");
+ const [step,setStep]=useState(1);
+ const [form,setForm]=useState({bike:bikes.find((bike)=>bike.id===initialBike)?.id||bikes[0].id,variant:"",color:"",name:"",mobile:"",email:"",city:"",preference:"Finance / EMI",notes:""});
+ const [errors,setErrors]=useState({});
+ const bike=bikes.find((item)=>item.id===form.bike)||bikes[0];
+ function change(event){const {name,value}=event.target;setForm((current)=>({...current,[name]:value,...(name==="bike"?{variant:"",color:""}:{})}));setErrors((current)=>({...current,[name]:undefined}));}
+ function next(){const next={};if(step===1&&!form.bike)next.bike="Select a motorcycle.";if(step===3){if(!form.name.trim())next.name="Enter your full name.";if(!/^[0-9]{10}$/.test(form.mobile))next.mobile="Enter a 10-digit mobile number.";if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))next.email="Enter a valid email.";}if(step===4&&!form.city.trim())next.city="Enter a preferred city.";setErrors(next);if(!Object.keys(next).length)setStep((value)=>value+1);}
+ function submit(){localStorage.setItem("rideverse-purchase-enquiry",JSON.stringify({...form,simulated:true,createdAt:new Date().toISOString()}));setStep(7);}
+ if(step===7)return <main className="inner-page confirmation"><div className="confirmation-icon">✓</div><p className="eyebrow">DEMO CONFIRMATION</p><h1>Enquiry saved locally</h1><p>No purchase or inventory confirmation has occurred. Your request is ready for a future backend integration.</p><Link className="primary-button" to="/bikes">Explore more bikes</Link></main>;
+ return <main className="form-page enquiry-page"><header className="page-heading"><div><p className="eyebrow">PURCHASE ENQUIRY</p><h1>{["","Select motorcycle","Variant & color","Your details","Preferred city","Purchase preference","Review request"][step]}</h1></div><span className="step-count">{step} / 6</span></header><div className="step-progress">{[1,2,3,4,5,6].map((item)=><i key={item} className={item<=step?"active":""}/>)}</div><div className="enquiry-body">
+ {step===1&&<label className="large-select">Motorcycle<select name="bike" value={form.bike} onChange={change}>{bikes.map((item)=><option key={item.id} value={item.id}>{item.brand} {item.name} — {formatRupees(item.price)}</option>)}</select></label>}
+ {step===2&&<><div className="option-group"><strong>Variant</strong><div className="variant-options"><button className={form.variant===bike.variant||!form.variant?"active":""} onClick={()=>setForm((current)=>({...current,variant:bike.variant}))}>{bike.variant}</button></div></div><div className="option-group"><strong>Color</strong><div className="color-options">{bike.colors.map((color)=><button key={color} className={form.color===color?"active":""} onClick={()=>setForm((current)=>({...current,color}))}><i style={{background:color.toLowerCase()}}/><span>{color}</span></button>)}</div></div></>}
+ {step===3&&<div className="form-grid"><label>Full name<input name="name" value={form.name} onChange={change}/>{errors.name&&<small>{errors.name}</small>}</label><label>Mobile number<input name="mobile" value={form.mobile} onChange={change}/>{errors.mobile&&<small>{errors.mobile}</small>}</label><label className="full">Email<input name="email" type="email" value={form.email} onChange={change}/>{errors.email&&<small>{errors.email}</small>}</label></div>}
+ {step===4&&<label className="large-select">Preferred city<input name="city" value={form.city} onChange={change} placeholder="Enter your city"/>{errors.city&&<small>{errors.city}</small>}</label>}
+ {step===5&&<div className="preference-options">{["Full payment","Finance / EMI","Check dealer offers"].map((preference)=><button key={preference} className={form.preference===preference?"active":""} onClick={()=>setForm((current)=>({...current,preference}))}>{preference}</button>)}</div>}
+ {step===6&&<div className="review-card"><div><span>Motorcycle</span><strong>{bike.brand} {bike.name}</strong></div><div><span>Variant / Color</span><strong>{form.variant||bike.variant} / {form.color||bike.colors[0]}</strong></div><div><span>Customer</span><strong>{form.name}</strong></div><div><span>Contact</span><strong>{form.mobile} · {form.email}</strong></div><div><span>City</span><strong>{form.city}</strong></div><div><span>Preference</span><strong>{form.preference}</strong></div><label className="full">Optional notes<textarea name="notes" value={form.notes} onChange={change} rows="3"/></label></div>}
+ </div><div className="form-navigation">{step>1&&<button onClick={()=>setStep((value)=>value-1)}>Back</button>}<button className="primary-button" onClick={step===6?submit:next}>{step===6?"Submit Demo Enquiry":"Continue"}</button></div></main>;
+}

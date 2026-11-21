@@ -1,0 +1,12 @@
+import { useMemo, useState } from "react";
+import { formatRupees } from "../data/bikes";
+
+export default function EMICalculator(){
+ const [price,setPrice]=useState(1500000);
+ const [down,setDown]=useState(300000);
+ const [rate,setRate]=useState(9.5);
+ const [months,setMonths]=useState(36);
+ const result=useMemo(()=>{const principal=Math.max(0,price-down);const monthly=rate/12/100;let emi;if(monthly===0)emi=principal/months;else emi=principal*monthly*Math.pow(1+monthly,months)/(Math.pow(1+monthly,months)-1);const repayment=emi*months;return{principal,emi:principal?emi:0,totalInterest:Math.max(0,repayment-principal),repayment};},[price,down,rate,months]);
+ const principalPercent=result.repayment?Math.max(0,result.principal/result.repayment*100):0;
+ return <main className="emi-page"><section className="catalog-hero"><p className="eyebrow">FINANCE PLANNER</p><h1>EMI Calculator</h1><p>Explore an estimated monthly repayment before your purchase conversation.</p></section><div className="emi-layout"><div className="emi-controls"><label>Motorcycle price<strong>{formatRupees(price)}</strong><input type="range" min="50000" max="5000000" step="50000" value={price} onChange={(e)=>setPrice(Number(e.target.value))}/></label><label>Down payment<strong>{formatRupees(down)}</strong><input type="range" min="0" max={price} step="25000" value={down} onChange={(e)=>setDown(Number(e.target.value))}/></label><div className="emi-fields"><label>Interest rate (%)<input type="number" min="0" max="30" step=".1" value={rate} onChange={(e)=>setRate(Math.max(0,Number(e.target.value)))}/></label><label>Tenure (months)<input type="number" min="3" max="84" value={months} onChange={(e)=>setMonths(Math.max(3,Number(e.target.value)))}/></label></div></div><aside className="emi-result"><p className="eyebrow">MONTHLY ESTIMATE</p><strong className="emi-value">{formatRupees(Math.round(result.emi))}</strong><span>per month</span><div className="payment-chart"><div style={{width:`${principalPercent}%`}}/><i style={{width:`${100-principalPercent}%`}}/></div><div className="emi-breakdown"><div><span><i/>Loan amount</span><strong>{formatRupees(Math.round(result.principal))}</strong></div><div><span><i/>Total interest</span><strong>{formatRupees(Math.round(result.totalInterest))}</strong></div><div><span><i/>Total repayment</span><strong>{formatRupees(Math.round(result.repayment))}</strong></div></div><small>Estimates use the reducing-balance formula and exclude additional charges, taxes and insurance unless included.</small></aside></div></main>;
+}

@@ -1,0 +1,69 @@
+Motorcycle photo attribution
+
+These local image files are resized copies of the works below. Each image remains
+available under the stated license. Where the license requires ShareAlike, the
+resized copy is offered under the same license.
+
+ducati-panigale-v4.jpg
+  "Ducati Panigale V4 — Tuning World Bodensee 2018"
+  Matti Blume — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:Ducati_Panigale_V4_-_Tuning_World_Bodensee_2018,_Friedrichshafen_(OW1A0484).jpg
+
+bmw-s1000rr.jpg
+  "BMW S 1000 RR Studio"
+  Stefan Krause (Ritchyblack) — CC BY-SA 3.0
+  https://commons.wikimedia.org/wiki/File:BMW_S1000_RR_Studio.JPG
+
+kawasaki-ninja-zx10r.jpg
+  "Kawasaki Ninja ZX-10R 2006"
+  PekePON — CC BY-SA 3.0
+  https://commons.wikimedia.org/wiki/File:Kawasaki_Ninja_ZX-10R_2006.jpg
+
+harley-fat-boy-114.jpg
+  "Harley Davidson Fat Boy 114"
+  Terragio67 — CC BY-SA 4.0
+  https://commons.wikimedia.org/w/index.php?curid=133745799
+
+royal-enfield-himalayan.jpg
+  "Royal Enfield Himalayan 450"
+  Rouv1505 — CC BY-SA 4.0
+  https://commons.wikimedia.org/w/index.php?curid=147254098
+
+bmw-r1300gs.jpg
+  "2024 BMW R 1300 GS Option 719 Tramuntana"
+  Franken-Guzzista — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:2024_BMW_R1300GS_Option_719_Tramuntana_mod.jpg
+
+honda-gold-wing.jpg
+  "Honda Gold Wing GL1800 — Indonesia International Motor Show 2018"
+  Wilzz99 — CC BY-SA 4.0
+  https://commons.wikimedia.org/w/index.php?curid=68582729
+
+ktm-duke-390.jpg
+  "KTM 390 Duke"
+  LoiR — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:KTM_390_Duke.jpg
+
+yamaha-mt09.jpg
+  "2024 Yamaha MT-09 Y-AMT"
+  Chanokchon — CC BY-SA 4.0
+  https://commons.wikimedia.org/w/index.php?curid=160086374
+
+ola-s1-pro.jpg
+  "Ola S1 Pro 4"
+  Ganesh Mohan T — CC BY-SA 4.0
+  https://commons.wikimedia.org/wiki/File:Ola_S1_Pro_4.jpg
+
+aprilia-rsv4.jpg
+  "Aprilia RSV4"
+  Debarshi Ray — CC BY-SA 2.0
+  https://www.flickr.com/photos/39423133@N04/14105012366
+
+royal-enfield-classic-350.jpg
+  "Royal Enfield Classic 350"
+  Vinc3nt — CC BY-SA 2.0
+  https://www.flickr.com/photos/50459745@N04/8590500349
+
+No usable, locally bundled model-specific photo asset was available for the
+other catalog entries, including the TVS Apache RR 310. Those bikes use the
+bundled photo-pending.svg illustration instead.
