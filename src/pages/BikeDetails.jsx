@@ -3,9 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { Heart, Scale, ChevronRight, ArrowLeft } from "lucide-react";
 import bikes, { formatRupees } from "../data/bikes";
 import { useStore } from "../context/StoreContext";
-import BikeCard from "../components/BikeCard";
-import EngineSoundStudio from "../components/EngineSoundStudio";
-import PhotoCredit from "../components/PhotoCredit";
+import BikeCard from "../Components/BikeCard";
+import EngineSoundStudio from "../Components/EngineSoundStudio";
+import PhotoCredit from "../Components/PhotoCredit";
 
 export default function BikeDetails() {
   const { id } = useParams();

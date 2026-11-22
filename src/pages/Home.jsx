@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { ArrowDown, ArrowRight, Gauge, ShieldCheck, Zap, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import bikes, { formatRupees } from "../data/bikes";
 import { categories, brands } from "../data/catalog";
-import BikeCard from "../components/BikeCard";
-import BikeSoundPlayer from "../components/BikeSoundPlayer";
-import PhotoCredit from "../components/PhotoCredit";
+import BikeCard from "../Components/BikeCard";
+import BikeSoundPlayer from "../Components/BikeSoundPlayer";
+import PhotoCredit from "../Components/PhotoCredit";
 
 export default function Home() {
   const featured = bikes.filter((bike) => bike.featured);

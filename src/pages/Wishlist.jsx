@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import bikes, { formatRupees } from "../data/bikes";
 import { useStore } from "../context/StoreContext";
-import BikeCard from "../components/BikeCard";
-import PhotoCredit from "../components/PhotoCredit";
+import BikeCard from "../Components/BikeCard";
+import PhotoCredit from "../Components/PhotoCredit";
 
 export default function Wishlist() {
   const { wishlist, recent, configurations }=useStore();

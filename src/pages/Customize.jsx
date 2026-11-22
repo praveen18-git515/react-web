@@ -2,8 +2,8 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import bikes, { formatRupees } from "../data/bikes";
 import { useStore } from "../context/StoreContext";
-import BikeSoundPlayer from "../components/BikeSoundPlayer";
-import PhotoCredit from "../components/PhotoCredit";
+import BikeSoundPlayer from "../Components/BikeSoundPlayer";
+import PhotoCredit from "../Components/PhotoCredit";
 
 const accessories=[["Premium helmet",25000],["Crash guards",12000],["Touring luggage",28000],["Phone navigation mount",4500],["Extended warranty",18000]];
 

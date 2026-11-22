@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Grid2X2, List, SlidersHorizontal, X } from "lucide-react";
 import bikes from "../data/bikes";
 import { categories, brands } from "../data/catalog";
-import BikeCard from "../components/BikeCard";
+import BikeCard from "../Components/BikeCard";
 
 export default function Bikes() {
   const [params, setParams] = useSearchParams();

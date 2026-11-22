@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import bikes, { formatRupees } from "../data/bikes";
 import { useStore } from "../context/StoreContext";
-import SoundComparison from "../components/SoundComparison";
-import PhotoCredit from "../components/PhotoCredit";
+import SoundComparison from "../Components/SoundComparison";
+import PhotoCredit from "../Components/PhotoCredit";
 
 export default function Compare() {
   const { compare, setCompare } = useStore();
